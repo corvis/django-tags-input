@@ -1,8 +1,13 @@
+from functools import partial
+
 from django.conf import settings
 from django.db import models
-from django.utils.functional import curry
 
 from . import exceptions
+
+
+def curry(func, *a, **kw):
+    return partial(func, *a, **kw)
 
 
 def get_mappings():
